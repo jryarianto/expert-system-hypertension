@@ -30,7 +30,9 @@
                 Jika tidak segera ditangani, hipertensi bisa menyebabkan munculnya penyakit-penyakit serius yang mengancam nyawa,
                 seperti gagal jantung, penyakit ginjal, dan stroke.
             </h3>
-            <input class="btn" type="button" value="Konsultasi Sekarang!">
+            <a href="konsul.php">
+                <input class="button button1" type="button" value="Konsultasi Sekarang!">
+            </a>
         </div>
 
         <img src="images/doctor.jfif" alt="Images not found" width="300px" height="300">
