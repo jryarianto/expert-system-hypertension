@@ -1,16 +1,39 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$mysqli = new mysqli("localhost", "root", "", "hipertensi");
+if($mysqli === false){
+    die("ERROR: Could not connect. " . $mysqli->connect_error);
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konsultasi</title>
-</head>
+$sql = "SELECT * FROM gejala";
 
-<body>
+if($result = $mysqli->query($sql)){
+    if($result->num_rows > 0){
+        echo "<h1>Konsultasi Hipertensi</h1>";
+        echo "<table class='table'>";
+        echo "<thead>"; 
+                echo "<tr>";
+                    echo "<th>Nomor Gejela</th>";
+                    echo "<th>Pilih Gejela</th>";
+                    echo "<th>Nama Gejala</th>";
+                echo "</tr>";
+        echo "</thead>"; 
+        while($row = $result->fetch_array()){
+            echo "<tr>";
+                echo "<td>" . $row['id_gejala'] . "</td>";
+                echo "<td> <input type='checkbox' id='vehicle1' name='vehicle1' value='$row[gejala]'> </td>";
+                echo "<td>" . $row['gejala'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        // Free result set
+        $result->free();
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+}
 
-</body>
+$mysqli->close();
 
-</html>
+?>
