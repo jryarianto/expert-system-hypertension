@@ -14,6 +14,9 @@
     <link href="css/navbar.css" rel="stylesheet">
     <link href="css/konsul.css" rel="stylesheet">
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> ecc7b9c6bb6d8076512bfa849586b1a4c6e7602a
+=======
 >>>>>>> ecc7b9c6bb6d8076512bfa849586b1a4c6e7602a
 =======
 >>>>>>> ecc7b9c6bb6d8076512bfa849586b1a4c6e7602a
