@@ -1,0 +1,37 @@
+.bg1 {
+    background-color: thistle;
+    height: auto;
+    width: 100%;
+}
+
+.bg2 {
+    margin: 5px;
+}
+
+.title {
+    font-weight: bold;
+    text-align: center;
+}
+
+#customer {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#customer td, #customer th {
+    border: 1px solid black;
+    padding: 8px;
+}
+  
+#customer tr:nth-child(even){background-color: #f2f2f2;}
+  
+#customer tr:hover {background-color: #ddd;}
+  
+#customer th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}

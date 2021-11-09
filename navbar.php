@@ -23,7 +23,7 @@
         </div>
 
         <div class="navbar-right navbar-gejala">
-            <a href="index.php">
+            <a href="gejala.php">
                 <p>Gejala</p>
             </a>
         </div>

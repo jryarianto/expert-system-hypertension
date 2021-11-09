@@ -20,9 +20,9 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
         <table id="customers">
             <thead>
                 <tr>
-                    <td>Nomor Gejela</td>
-                    <td>Pilih Gejala</td>
-                    <td>Nama Gejala</td>
+                    <td style="text-align: center;">Nomor Gejela</td>
+                    <td style="text-align: center;">Pilih Gejala</td>
+                    <td style="text-align: center;">Nama Gejala</td>
                 </tr>
             </thead>
             <?php
@@ -30,7 +30,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
             ?>
                 <tbody>
                     <tr>
-                        <td><?php echo $row["id_gejala"]; ?></td>
+                        <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
                         <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
                         <td><?php echo $row["gejala"]; ?></td>
                     </tr>
