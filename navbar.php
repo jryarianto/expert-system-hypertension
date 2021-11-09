@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="navbar-right navbar-konsultasi">
-            <a href="index.php">
+            <a href="konsul.php">
                 <p>Konsultasi</p>
             </a>
         </div>

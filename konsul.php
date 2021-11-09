@@ -39,7 +39,7 @@ $mysqli->close();
 
 <?php
 include_once 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM myusers");
+$result = mysqli_query($conn, "SELECT * FROM hipertensi");
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,20 +55,18 @@ $result = mysqli_query($conn, "SELECT * FROM myusers");
         <table>
 
             <tr>
-                <td>First Name</td>
-                <td>Last Name</td>
-                <td>City</td>
-                <td>Email id</td>
+                <td>Nomor Gejela</td>
+                <td>Pilih Gejala</td>
+                <td>Nama Gejala</td>
             </tr>
             <?php
             $i = 0;
             while ($row = mysqli_fetch_array($result)) {
             ?>
                 <tr>
-                    <td><?php echo $row["first_name"]; ?></td>
-                    <td><?php echo $row["last_name"]; ?></td>
-                    <td><?php echo $row["city_name"]; ?></td>
-                    <td><?php echo $row["email"]; ?></td>
+                    <td><?php echo $row["id_gejala"]; ?></td>
+                    <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
+                    <td><?php echo $row["gejala"]; ?></td>
                 </tr>
             <?php
                 $i++;
