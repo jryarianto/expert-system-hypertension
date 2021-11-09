@@ -1,0 +1,28 @@
+.container-fluid {
+    display: flex;
+}
+
+.hr {
+    border: 2px solid gray);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-p {
+    font-size: xx-large;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.navbar-right {
+    display: flex;
+    margin: auto;
+}
+
+.navbar {
+    padding: 0px;
+}
