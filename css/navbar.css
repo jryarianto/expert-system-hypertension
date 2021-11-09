@@ -1,9 +1,11 @@
 .container-fluid {
     display: flex;
+    background-image: linear-gradient(to top, pink, white);
 }
 
 .hr {
-    border: 2px solid gray;
+    background-color: gray;
+    margin: 0px;
 }
 
 a {
@@ -25,4 +27,5 @@ a {
 
 .navbar {
     padding: 0px;
+
 }

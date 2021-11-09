@@ -1,7 +1,7 @@
 <head>
     <link href="css/navbar.css" rel="stylesheet">
 </head>
-<nav class="navbar ">
+<nav class="navbar">
     <div class="container-fluid">
         <a href="index.php">
             <img src="images/logo.png" alt="" width="100" height="100" class="d-inline-block">
@@ -23,11 +23,11 @@
         </div>
 
         <div class="navbar-right navbar-gejala">
-            <a href="index.php">
+            <a href="gejala.php">
                 <p>Gejala</p>
             </a>
         </div>
 
     </div>
+    <hr class="hr">
 </nav>
-<hr class="hr">
