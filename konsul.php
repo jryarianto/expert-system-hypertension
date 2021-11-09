@@ -6,12 +6,12 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
 <html>
 
 <head>
-    <?php include_once 'navbar.php' ?>
     <title> Retrive data</title>
     <link href="css/konsul.css" rel="stylesheet">
 </head>
 
 <body>
+    <?php include 'navbar.php'; ?>
     <h1>Konsultasi Hipertensi</h1>
     <h3>Silahkan pilih gejala dibawah ini :</h3>
     <?php
