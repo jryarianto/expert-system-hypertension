@@ -1,75 +1,41 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "hipertensi");
-if ($mysqli === false) {
-    die("ERROR: Could not connect. " . $mysqli->connect_error);
-}
-
-$sql = "SELECT * FROM gejala";
-
-if ($result = $mysqli->query($sql)) {
-    if ($result->num_rows > 0) {
-        echo "<h1>Konsultasi Hipertensi</h1>";
-        echo "<table class='table'>";
-        echo "<thead>";
-        echo "<tr>";
-        echo "<th>Nomor Gejela</th>";
-        echo "<th>Pilih Gejela</th>";
-        echo "<th>Nama Gejala</th>";
-        echo "</tr>";
-        echo "</thead>";
-        while ($row = $result->fetch_array()) {
-            echo "<tr>";
-            echo "<td>" . $row['id_gejala'] . "</td>";
-            echo "<td> <input type='checkbox' id='vehicle1' name='vehicle1' value='$row[gejala]'> </td>";
-            echo "<td>" . $row['gejala'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        // Free result set
-        $result->free();
-    } else {
-        echo "No records matching your query were found.";
-    }
-} else {
-    echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
-}
-
-$mysqli->close();
-?>
-
-<?php
 include_once 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM hipertensi");
+$result = mysqli_query($conn, "SELECT * FROM gejala");
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <?php include_once 'navbar.php' ?>
     <title> Retrive data</title>
+    <link href="css/konsul.css" rel="stylesheet">
 </head>
 
 <body>
+    <h1>Konsultasi Hipertensi</h1>
+    <h3>Silahkan pilih gejala dibawah ini :</h3>
     <?php
-    if (mysqli_num_rows($result) > 0) {
+    if (!$result || mysqli_num_rows($result) > 0) {
     ?>
-        <table>
-
-            <tr>
-                <td>Nomor Gejela</td>
-                <td>Pilih Gejala</td>
-                <td>Nama Gejala</td>
-            </tr>
+        <table id="customers">
+            <thead>
+                <tr>
+                    <td>Nomor Gejela</td>
+                    <td>Pilih Gejala</td>
+                    <td>Nama Gejala</td>
+                </tr>
+            </thead>
             <?php
-            $i = 0;
             while ($row = mysqli_fetch_array($result)) {
             ?>
-                <tr>
-                    <td><?php echo $row["id_gejala"]; ?></td>
-                    <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
-                    <td><?php echo $row["gejala"]; ?></td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><?php echo $row["id_gejala"]; ?></td>
+                        <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
+                        <td><?php echo $row["gejala"]; ?></td>
+                    </tr>
+                </tbody>
             <?php
-                $i++;
             }
             ?>
         </table>
@@ -78,6 +44,9 @@ $result = mysqli_query($conn, "SELECT * FROM hipertensi");
         echo "No result found";
     }
     ?>
+    <a class="button button1" href="">
+        <button type="submit" >Selesai</button>
+    </a>
 </body>
 
 </html>
