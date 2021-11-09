@@ -17,36 +17,41 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     <?php
     if (!$result || mysqli_num_rows($result) > 0) {
     ?>
-        <table id="customers">
-            <thead>
-                <tr>
-                    <td style="text-align: center;">Nomor Gejela</td>
-                    <td style="text-align: center;">Pilih Gejala</td>
-                    <td style="text-align: center;">Nama Gejala</td>
-                </tr>
-            </thead>
-            <?php
-            while ($row = mysqli_fetch_array($result)) {
-            ?>
-                <tbody>
+        <div class="customer">
+            <table id="customers">
+                <thead>
                     <tr>
-                        <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                        <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
-                        <td><?php echo $row["gejala"]; ?></td>
+                        <td style="text-align: center;">Nomor Gejela</td>
+                        <td style="text-align: center;">Pilih Gejala</td>
+                        <td style="text-align: center;">Nama Gejala</td>
                     </tr>
-                </tbody>
-            <?php
-            }
-            ?>
-        </table>
+                </thead>
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
+                            <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
+                            <td><?php echo $row["gejala"]; ?></td>
+                        </tr>
+                    </tbody>
+                <?php
+                }
+                ?>
+            </table>
+        </div>
     <?php
     } else {
         echo "No result found";
     }
     ?>
-    <a class="button button1" href="">
-        <button type="submit" >Selesai</button>
-    </a>
+    <div class="btn">
+        <a class="button" href="">
+            <button style="float: right;" type="submit">Selesai</button>
+        </a>
+    </div>
+
 </body>
 
 </html>
