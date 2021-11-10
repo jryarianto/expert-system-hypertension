@@ -12,6 +12,7 @@ $crud = new Crud();
     <title>Result Page</title>
     <link href="css/hasil.css" rel="stylesheet">
     <link href="css/hasil2.css" rel="stylesheet">
+    <link href="css/konsul.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
 </head>
 
@@ -96,7 +97,7 @@ $crud = new Crud();
                     <ul style="font-family: 'Source Sans Pro', sans-serif; font-size:24px;">
                         <?php $crud->hasilAkhir($daftar_cf, $groupKemungkinanPenyakit); ?>
                     </ul>
-                    <button style="width: 100%; height: 100%;" id="btn-solusi" type="submit" name="btn-solusi">Solusi</button>
+                    <button class="button button1" id="btn-solusi" type="submit" name="btn-solusi">Solusi</button><br />
                 </form>
             <?php } ?>
         </section>

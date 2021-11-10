@@ -6,12 +6,11 @@
 .mfp-zoom-out-cur,.mfp-zoom-out-cur .mfp-image-holder .mfp-close{cursor:-moz-zoom-out;cursor:-webkit-zoom-out;cursor:zoom-out}
 .mfp-zoom{cursor:pointer;cursor:-webkit-zoom-in;cursor:-moz-zoom-in;cursor:zoom-in}.mfp-auto-cursor .mfp-content{cursor:auto}
 .mfp-close,.mfp-arrow,.mfp-preloader,.mfp-counter{-webkit-user-select:none;-moz-user-select:none;user-select:none}
-.mfp-loading.mfp-figure{display:none}.mfp-hide{display:none !important}.mfp-preloader{color:#CCC;position:absolute;top:50%;width:auto;text-align:center;margin-top:-0.8em;left:8px;right:8px;z-index:1044}
+.mfp-loading.mfp-figure{display:none}.mfp-hide{display:none !important}
+.mfp-preloader{color:#CCC;position:absolute;top:50%;width:auto;text-align:center;margin-top:-0.8em;left:8px;right:8px;z-index:1044}
 .mfp-preloader a{color:#CCC}.mfp-preloader a:hover{color:#FFF}
 .mfp-s-ready .mfp-preloader{display:none}
 .mfp-s-error .mfp-content{display:none}
-button.mfp-close,button.mfp-arrow{overflow:visible;cursor:pointer;background:transparent;border:0;-webkit-appearance:none;display:block;outline:0;padding:0;z-index:1046;box-shadow:none;touch-action:manipulation}
-button::-moz-focus-inner{padding:0;border:0}
 .mfp-close{width:44px;height:44px;line-height:44px;position:absolute;right:0;top:0;text-decoration:none;text-align:center;opacity:.65;padding:0 0 18px 10px;color:#FFF;font-style:normal;font-size:28px;font-family:Arial,Baskerville,monospace}
 .mfp-close:hover,.mfp-close:focus{opacity:1}
 .mfp-close:active{top:1px}
@@ -54,4 +53,29 @@ img.mfp-img{width:auto;max-width:100%;height:auto;display:block;line-height:0;bo
     .mfp-arrow-left{-webkit-transform-origin:0 0;transform-origin:0 0}
     .mfp-arrow-right{-webkit-transform-origin:100%;transform-origin:100%}
     .mfp-container{padding-left:6px;padding-right:6px}
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+  
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+  
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
 }
