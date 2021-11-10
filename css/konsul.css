@@ -1,15 +1,17 @@
 h1 {
   font-weight: 700;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h3 {
   font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
 }
 
 .customer {
-  margin: 40px;
+  margin: 100px;
 }
 
 #customers {
@@ -76,4 +78,8 @@ button {
   display: flex;
   justify-content: flex-end;
   margin-right: 40px;
+}
+
+.tablebox {
+  max-width: 50%;
 }
