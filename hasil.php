@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result Page</title>
     <link href="css/hasil.css" rel="stylesheet">
-    <?php include_once 'navbar.php' ?>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <?php include 'navbar.php' ?>
     <div class="bgWhite">
         <h1>Hasil :</h1>
     </div>
