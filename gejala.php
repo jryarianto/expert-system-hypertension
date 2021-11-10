@@ -1,6 +1,7 @@
 <?php
-include_once 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM gejala");
+include('crud.php');
+$crud = new Crud();
+$arrayName = $crud->readGejala();
 ?>
 
 <!DOCTYPE html>
@@ -19,36 +20,28 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     <h2 class="title">Tabel Gejala</h2>
     <!-- <div class="bg1">
         <div class="bg2"> -->
-    <?php
-    if (!$result || mysqli_num_rows($result) > 0) {
-    ?>
-        <div class="tablebox">
-            <table id="customer">
-                <thead>
+    <div class="tablebox">
+        <table id="customer">
+            <thead>
+                <tr>
+                    <td style="text-align: center;">Nomor Gejela</td>
+                    <td style="text-align: center;">Nama Gejala</td>
+                </tr>
+            </thead>
+            <?php
+            foreach ($arrayName as $r) {
+            ?>
+                <tbody>
                     <tr>
-                        <td style="text-align: center;">Nomor Gejela</td>
-                        <td style="text-align: center;">Nama Gejala</td>
+                        <td style="text-align: center;"><?php echo $r["id_gejala"]; ?></td>
+                        <td style="text-align: center;"><?php echo $r["gejala"]; ?></td>
                     </tr>
-                </thead>
-                <?php
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
-                    <tbody>
-                        <tr>
-                            <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                            <td style="text-align: center;"><?php echo $row["gejala"]; ?></td>
-                        </tr>
-                    </tbody>
-                <?php
-                }
-                ?>
-            </table>
-        </div>
-    <?php
-    } else {
-        echo "No result found";
-    }
-    ?>
+                </tbody>
+            <?php
+            }
+            ?>
+        </table>
+    </div>
     <!-- </div>
     </div> -->
 </body>
