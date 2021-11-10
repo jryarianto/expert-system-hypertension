@@ -8,23 +8,23 @@
         </a>
         <div class="navbar-p">
             <a href="index.php">
-                <p>AlphaMale</p>
+                <p style="color: black;">AlphaMale</p>
             </a>
         </div>
         <div class="navbar-right navbar-home">
             <a href="index.php">
-                <p>Home</p>
+                <p style="color: black;">Home</p>
             </a>
         </div>
         <div class="navbar-right navbar-konsultasi">
             <a href="konsul.php">
-                <p>Konsultasi</p>
+                <p style="color: black;">Konsultasi</p>
             </a>
         </div>
 
         <div class="navbar-right navbar-gejala">
             <a href="gejala.php">
-                <p>Gejala</p>
+                <p style="color: black;">Gejala</p>
             </a>
         </div>
 

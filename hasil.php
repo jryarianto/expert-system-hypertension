@@ -7,41 +7,11 @@
     <title>Result Page</title>
     <link href="css/hasil.css" rel="stylesheet">
     <link href="css/hasil2.css" rel="stylesheet">
-    <link href="css/navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a href="index.php">
-                <img src="images/logo.png" alt="" width="100" height="100" class="d-inline-block">
-            </a>
-            <div class="navbar-p">
-                <a href="index.php">
-                    <p style="color: black;">AlphaMale</p>
-                </a>
-            </div>
-            <div class="navbar-right navbar-home">
-                <a href="index.php">
-                    <p style="color: black;">Home</p>
-                </a>
-            </div>
-            <div class="navbar-right navbar-konsultasi">
-                <a href="konsul.php">
-                    <p style="color: black;">Konsultasi</p>
-                </a>
-            </div>
-
-            <div class="navbar-right navbar-gejala">
-                <a href="gejala.php">
-                    <p style="color: black;">Gejala</p>
-                </a>
-            </div>
-
-        </div>
-        <hr class="hr">
-    </nav>
+    <?php include_once 'navbar.php' ?>
     <div class="tm-container-fluid">
         <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
             <i class="fas fa-heart fa-3x"></i>
