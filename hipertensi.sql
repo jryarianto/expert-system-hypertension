@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 12:20 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Nov 10, 2021 at 03:12 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,11 +56,27 @@ INSERT INTO `gejala` (`id_gejala`, `gejala`) VALUES
 
 CREATE TABLE `pengetahuan` (
   `id_pengetahuan` int(11) NOT NULL,
-  `kode_penyakit` varchar(10) NOT NULL,
-  `id_gejala` int(11) NOT NULL,
+  `kode_penyakit` varchar(100) NOT NULL,
+  `id_gejala` int(12) NOT NULL,
   `mb` float NOT NULL,
   `md` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengetahuan`
+--
+
+INSERT INTO `pengetahuan` (`id_pengetahuan`, `kode_penyakit`, `id_gejala`, `mb`, `md`) VALUES
+(1, 'HP', 1, 0.75, 0.25),
+(2, 'HS', 2, 0.75, 0.25),
+(3, 'P', 3, 0.75, 0.25),
+(4, 'KH', 4, 0.85, 0.15),
+(5, 'HS', 5, 0.75, 0.25),
+(6, 'HE', 7, 0.75, 0.25),
+(7, 'HP', 9, 0.75, 0.25),
+(8, 'HS', 10, 0.75, 0.25),
+(9, 'P', 6, 0.7, 0.3),
+(10, 'KH', 8, 0.65, 0.35);
 
 -- --------------------------------------------------------
 
@@ -80,12 +96,12 @@ CREATE TABLE `penyakit` (
 --
 
 INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`, `kode_penyakit`, `solusi_penyakit`) VALUES
-(1, 'Hipertensi Primer atau Esensial', 'R', 'Minum Air'),
-(2, 'Hipertensi Sekunder', 'S', 'Makan Sehat'),
-(3, 'Prehipertensi', 'B', 'Makan dan Minum'),
-(4, 'Krisis Hipertensi', 'SB', 'Tidur Cukup'),
-(5, 'Hipertensi Urgensi', 'S', 'Olahraga'),
-(6, 'Hipertensi Emergensi', 'SB', 'Makan Teratur');
+(1, 'Hipertensi Primer atau Esensial', 'HP', 'Minum Air'),
+(2, 'Hipertensi Sekunder', 'HS', 'Makan Sehat'),
+(3, 'Prehipertensi', 'P', 'Makan dan Minum'),
+(4, 'Krisis Hipertensi', 'KH', 'Tidur Cukup'),
+(5, 'Hipertensi Urgensi', 'HS', 'Olahraga'),
+(6, 'Hipertensi Emergensi', 'HE', 'Makan Teratur');
 
 --
 -- Indexes for dumped tables
@@ -123,7 +139,7 @@ ALTER TABLE `gejala`
 -- AUTO_INCREMENT for table `pengetahuan`
 --
 ALTER TABLE `pengetahuan`
-  MODIFY `id_pengetahuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengetahuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `penyakit`
