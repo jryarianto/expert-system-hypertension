@@ -6,7 +6,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
 <html>
 
 <head>
-    <title> Retrive data</title>
+    <title>Konsultasi Page</title>
     <link href="css/konsul.css" rel="stylesheet">
     <link href="css/allpage.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     }
     ?>
     <div class="btn">
-        <a class="button" href="">
+        <a class="button" href="hasil.php">
             <button style="float: right;" type="submit">Selesai</button>
         </a>
     </div>
