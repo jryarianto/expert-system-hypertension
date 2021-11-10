@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include('crud.php');
+$crud = new Crud();
+?>
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,41 +19,92 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container-fluid">
-            <a href="index.php">
-                <img src="images/logo.png" alt="" width="100" height="100" class="d-inline-block">
-            </a>
-            <div class="navbar-p">
-                <a href="index.php">
-                    <p style="color: black;">AlphaMale</p>
-                </a>
-            </div>
-            <div class="navbar-right navbar-home">
-                <a href="index.php">
-                    <p style="color: black;">Home</p>
-                </a>
-            </div>
-            <div class="navbar-right navbar-konsultasi">
-                <a href="konsul.php">
-                    <p style="color: black;">Konsultasi</p>
-                </a>
-            </div>
 
-            <div class="navbar-right navbar-gejala">
-                <a href="gejala.php">
-                    <p style="color: black;">Gejala</p>
-                </a>
-            </div>
+    <?php include 'navbar.php' ?>
 
-        </div>
-        <hr class="hr">
-    </nav>
     <div class="tm-container-fluid">
         <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
             <i class="fas fa-heart fa-3x"></i>
             <h1>Hasil Konsultasi</h1>
             <h3 style="color: white;">asdas</h3>
+            <?php
+            if (isset($_POST['submit'])) {
+                if (!isset($_POST['gejala'])) {
+                    header("Location: konsul.php");
+                    die();
+                }
+                // group kemungkinan terdapat penyakit
+                $groupKemungkinanPenyakit = $crud->getGroupPengetahuan(implode(",", $_POST['gejala']));
+                // menampilkan kode gejala yang di pilih
+
+                var_dump($groupKemungkinanPenyakit);
+                die();
+                $sql = $_POST['gejala'];
+                if (isset($sql)) {
+                    // mencari data penyakit kemungkinan dari gejala
+                    for ($h = 0; $h < count($sql); $h++) {
+                        $kemungkinanPenyakit[] = $crud->getKemungkinanPenyakit($sql[$h]);
+                        for ($x = 0; $x < count($kemungkinanPenyakit[$h]); $x++) {
+                            for ($i = 0; $i < count($groupKemungkinanPenyakit); $i++) {
+                                $namaPenyakit = $groupKemungkinanPenyakit[$i]['nama_penyakit'];
+                                if ($kemungkinanPenyakit[$h][$x]['nama_penyakit'] == $namaPenyakit) {
+                                    // list di kemungkinan dari gejala
+                                    $listIdKemungkinan[$namaPenyakit][] = $kemungkinanPenyakit[$h][$x]['id_pengetahuan'];
+                                }
+                            }
+                        }
+                    }
+
+                    $id_penyakit_terbesar = '';
+                    $nama_penyakit_terbesar = '';
+                    // list penyakit kemungkinan
+                    for ($h = 0; $h < count($groupKemungkinanPenyakit); $h++) {
+                        $namaPenyakit = $groupKemungkinanPenyakit[$h]['nama_penyakit'];
+                        // list penyakit kemungkinan dari gejala
+                        for ($x = 0; $x < count($listIdKemungkinan[$namaPenyakit]); $x++) {
+                            $daftarKemungkinanPenyakit = $crud->getListPenyakit($listIdKemungkinan[$namaPenyakit][$x]);
+                            $mb = $daftarKemungkinanPenyakit[0]['mb'];
+                            $md = $daftarKemungkinanPenyakit[0]['md'];
+                            if ($mb < $md) {
+                                $cf = ($mb - $md) / (1 - $mb);
+                            } else {
+                                $cf = ($mb - $md) / (1 - $md);
+                            }
+                            if ($x == 0) {
+                                $daftar_cf[$namaPenyakit][] = $cf;
+                                $cf_accumulative = $cf;
+                            } else {
+                                $cf_baru = $cf_accumulative + ($cf * (1 - $cf_accumulative));
+                                $cf_accumulative = $cf_baru;
+                                $daftar_cf[$namaPenyakit][] = $cf_baru;
+                            }
+                        }
+                    }
+                }
+            ?>
+                <table class="table table-light table-bordered border-dark" style="text-align: center;">
+                    <thead class="table-info table-bordered border-dark">
+                        <tr>
+                            <th scope="col">Nama Penyakit</th>
+                            <th scope="col">Nilai CF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php
+                            $crud->hasilCFTertinggi($daftar_cf, $groupKemungkinanPenyakit);
+                            ?>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2 style="font-family: 'Permanent Marker', cursive;"> Kemungkinan Penyakit Anda : </h2>
+                <form name="form_diagnosis" action="Solusi.php" method="POST">
+                    <ul style="font-family: 'Source Sans Pro', sans-serif; font-size:24px;">
+                        <?php $crud->hasilAkhir($daftar_cf, $groupKemungkinanPenyakit); ?>
+                    </ul>
+                    <button id="btn-solusi" type="submit" name="btn-solusi">Solusi</button>
+                </form>
+            <?php } ?>
         </section>
 
         <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-2 tm-border-rounded">
@@ -64,8 +122,8 @@
 // if (isset($_POST['button'])) {
 //     echo "sadas";
 // }
-$gejala = $_POST['gejala'];
-var_dump($gejala);
+// $gejala = $_POST['gejala'];
+// var_dump($gejala);
 ?>
 
 </html>

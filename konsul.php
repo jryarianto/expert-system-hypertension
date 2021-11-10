@@ -1,6 +1,7 @@
 <?php
-include_once 'connect.php';
-$result = mysqli_query($conn, "SELECT * FROM gejala");
+include_once 'crud.php';
+$crud = new Crud;
+$arrayName = $crud->readGejala(); ?>
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,44 +18,36 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     <?php include 'navbar.php'; ?>
     <h1>Konsultasi Hipertensi</h1>
     <h3>Silahkan pilih gejala dibawah ini :</h3>
-    <?php
-    if (!$result || mysqli_num_rows($result) > 0) {
-    ?>
-        <div class="customer">
-            <form method="POST" action="hasil.php">
-                <table id="customers">
-                    <thead>
-                        <tr>
-                            <td style="text-align: center;">Nomor Gejela</td>
-                            <td style="text-align: center;">Pilih Gejala</td>
-                            <td style="text-align: center;">Nama Gejala</td>
-                        </tr>
-                    </thead>
-                    <?php
-                    while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                        <tbody>
-                            <tr>
-                                <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                                <td><input type='checkbox' name="gejala[]" value='<?php echo $row["gejala"]; ?>'></td>
-                                <td><?php echo $row["gejala"]; ?></td>
-                            </tr>
-                        </tbody>
-                    <?php
-                    }
-                    ?>
-                </table>
-                <div class="btn">
-                    <input class="button" type="submit" value="Selesai" name="submit">
-                </div>
-            </form>
-        </div>
-    <?php
-    } else {
-        echo "No result found";
-    }
-    ?>
 
+    <div class="customer">
+        <form method="POST" action="hasil.php">
+            <table id="customers">
+                <thead>
+                    <tr>
+                        <td style="text-align: center;">Nomor Gejela</td>
+                        <td style="text-align: center;">Pilih Gejala</td>
+                        <td style="text-align: center;">Nama Gejala</td>
+                    </tr>
+                </thead>
+                <?php
+                foreach ($arrayName as $r) {
+                ?>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $r["id_gejala"]; ?></td>
+                            <td><input type='checkbox' name="gejala[]" value='<?php echo $r["gejala"]; ?>'></td>
+                            <td><?php echo $r["gejala"]; ?></td>
+                        </tr>
+                    </tbody>
+                <?php
+                }
+                ?>
+            </table>
+            <div class="btn">
+                <input class="button" type="submit" value="Selesai" name="submit">
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
