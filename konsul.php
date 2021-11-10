@@ -21,28 +21,30 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     if (!$result || mysqli_num_rows($result) > 0) {
     ?>
         <div class="customer">
-            <table id="customers">
-                <thead>
-                    <tr>
-                        <td style="text-align: center;">Nomor Gejela</td>
-                        <td style="text-align: center;">Pilih Gejala</td>
-                        <td style="text-align: center;">Nama Gejala</td>
-                    </tr>
-                </thead>
-                <?php
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
-                    <tbody>
+            <form method="POST">
+                <table id="customers">
+                    <thead>
                         <tr>
-                            <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                            <td><input type='checkbox' id='vehicle1' name='vehicle1' value='$row["gejala"]'></td>
-                            <td><?php echo $row["gejala"]; ?></td>
+                            <td style="text-align: center;">Nomor Gejela</td>
+                            <td style="text-align: center;">Pilih Gejala</td>
+                            <td style="text-align: center;">Nama Gejala</td>
                         </tr>
-                    </tbody>
-                <?php
-                }
-                ?>
-            </table>
+                    </thead>
+                    <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
+                                <td><input type='checkbox' id='vehicle1' name='vehicle1' value='<?php echo $row["gejala"]; ?>'></td>
+                                <td><?php echo $row["gejala"]; ?></td>
+                            </tr>
+                        </tbody>
+                    <?php
+                    }
+                    ?>
+                </table>
+            </form>
         </div>
     <?php
     } else {
