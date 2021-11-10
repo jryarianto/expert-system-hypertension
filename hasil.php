@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    <h1>Hasil Page</h1>
+    <div class="bgWhite">
+        <h1>Hasil :</h1>
+    </div>
 </body>
 
 </html>
