@@ -9,8 +9,6 @@ $crud = new Crud();
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result Page</title>
     <link href="css/hasil.css" rel="stylesheet">
     <link href="css/hasil2.css" rel="stylesheet">
@@ -25,7 +23,6 @@ $crud = new Crud();
         <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
             <i class="fas fa-heart fa-3x"></i>
             <h1>Hasil Konsultasi</h1>
-            <h3 style="color: white;">asdas</h3>
             <?php
             if (isset($_POST['submit'])) {
                 if (!isset($_POST['gejala'])) {
@@ -36,8 +33,6 @@ $crud = new Crud();
                 $groupKemungkinanPenyakit = $crud->getGroupPengetahuan(implode(",", $_POST['gejala']));
                 // menampilkan kode gejala yang di pilih
 
-                var_dump($groupKemungkinanPenyakit);
-                die();
                 $sql = $_POST['gejala'];
                 if (isset($sql)) {
                     // mencari data penyakit kemungkinan dari gejala
@@ -97,30 +92,21 @@ $crud = new Crud();
                     </tbody>
                 </table>
                 <h2 style="font-family: 'Permanent Marker', cursive;"> Kemungkinan Penyakit Anda : </h2>
-                <form name="form_diagnosis" action="Solusi.php" method="POST">
+                <form name="form_diagnosis" action="solusi.php" method="POST">
                     <ul style="font-family: 'Source Sans Pro', sans-serif; font-size:24px;">
                         <?php $crud->hasilAkhir($daftar_cf, $groupKemungkinanPenyakit); ?>
                     </ul>
-                    <button id="btn-solusi" type="submit" name="btn-solusi">Solusi</button>
+                    <button style="width: 100%; height: 100%;" id="btn-solusi" type="submit" name="btn-solusi">Solusi</button>
                 </form>
             <?php } ?>
         </section>
-
-        <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-2 tm-border-rounded">
-            <div class="tm-about-header tm-flex-center">
-                <i class="fas fa-users fa-2x"></i>
-                <h2>Solusi</h2>
-            </div>
-            <div class="tm-about-text">
-                <p class="tm-mb-40">werwer</p>
-            </div>
-        </section>
+    </div>
 </body>
 
 <?php
-// if (isset($_POST['button'])) {
-//     echo "sadas";
-// }
+// // if (isset($_POST['button'])) {
+// //     echo "sadas";
+// // }
 // $gejala = $_POST['gejala'];
 // var_dump($gejala);
 ?>

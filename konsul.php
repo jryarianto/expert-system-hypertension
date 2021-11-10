@@ -2,7 +2,6 @@
 include_once 'crud.php';
 $crud = new Crud;
 $arrayName = $crud->readGejala(); ?>
-?>
 <!DOCTYPE html>
 <html>
 
@@ -24,7 +23,6 @@ $arrayName = $crud->readGejala(); ?>
             <table id="customers">
                 <thead>
                     <tr>
-                        <td style="text-align: center;">Nomor Gejela</td>
                         <td style="text-align: center;">Pilih Gejala</td>
                         <td style="text-align: center;">Nama Gejala</td>
                     </tr>
@@ -34,9 +32,8 @@ $arrayName = $crud->readGejala(); ?>
                 ?>
                     <tbody>
                         <tr>
-                            <td style="text-align: center;"><?php echo $r["id_gejala"]; ?></td>
-                            <td><input type='checkbox' name="gejala[]" value='<?php echo $r["gejala"]; ?>'></td>
-                            <td><?php echo $r["gejala"]; ?></td>
+                            <td style="text-align: center;" name="gejala[]"><input id="gejala<?php echo $r['id_gejala']; ?>" name="gejala[]" type="checkbox" value="<?php echo $r['id_gejala']; ?>" style="width: 1.5em; height:1.5em;"></td>
+                            <td style="text-align: center;"><?php echo $r["gejala"]; ?></td>
                         </tr>
                     </tbody>
                 <?php
@@ -49,5 +46,14 @@ $arrayName = $crud->readGejala(); ?>
         </form>
     </div>
 </body>
+<?php
+// // if (isset($_POST['gejala'])) {
+// //     echo "sadas";
+// // } else {
+// //     echo "tai";
+// // }
+// $gejala = $_POST['gejala'];
+// var_dump($gejala);
+?>
 
 </html>

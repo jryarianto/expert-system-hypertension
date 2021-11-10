@@ -106,7 +106,6 @@ class Crud extends koneksi
         JOIN penyakit pyt ON p.kode_penyakit = pyt.kode_penyakit
         WHERE g.id_gejala IN ($sql)";
 
-        var_dump($sql);
 
         $result = $this->conn->query($sql);
 
@@ -158,6 +157,42 @@ class Crud extends koneksi
 
 
 
+    // public function hasilAkhir($daftar_cf, $groupKemungkinanPenyakit)
+    // {
+    //     for ($i = 0; $i < count($groupKemungkinanPenyakit); $i++) {
+    //         $namaPenyakit = $groupKemungkinanPenyakit[$i]['nama_penyakit'];
+    //         for ($x = 0; $x < count($daftar_cf[$namaPenyakit]); $x++) {
+    //             $merubahIndexCF[$i] = max($daftar_cf[$namaPenyakit]);
+    //         }
+    //     }
+    //     $j = 0;
+    //     for ($i = 0; $i < count($groupKemungkinanPenyakit); $i++) {
+    //         $hasilMax = max($merubahIndexCF);
+    //         if ($merubahIndexCF[$i] === $hasilMax) {
+    //             $namaPenyakit = $groupKemungkinanPenyakit[$i]['nama_penyakit'];
+    //             $penyakits[$j] = $namaPenyakit;
+    //             echo '<li>' . $penyakits[$j] . '</li>';
+    //             echo '<input type="hidden" name="diagnosa_penyakit[]" value="' . $penyakits[$j] . '">';
+
+    //             $sql = "SELECT solusi_penyakit FROM penyakit
+    //                     WHERE nama_penyakit = '$namaPenyakit'";
+    //             $result = $this->conn->query($sql);
+    //             if (isset($result)) {
+    //                 // merubah data tabel menjadi array
+    //                 $row = [];
+    //                 while ($row = $result->fetch_assoc()) {
+    //                     $rows[] = $row;
+    //                 }
+    //             }
+    //             $j++;
+    //         }
+    //     }
+    //     // for ($i = 0; $i < $j; $i++) {
+    //     //     echo '<input type="hidden" name="solusi[]" value="' . $rows[$i]["solusi"] . '">';
+    //     // }
+    // }
+
+
     public function hasilAkhir($daftar_cf, $groupKemungkinanPenyakit)
     {
         for ($i = 0; $i < count($groupKemungkinanPenyakit); $i++) {
@@ -174,7 +209,7 @@ class Crud extends koneksi
                 $penyakits[$j] = $namaPenyakit;
                 echo '<li>' . $penyakits[$j] . '</li>';
                 echo '<input type="hidden" name="diagnosa_penyakit[]" value="' . $penyakits[$j] . '">';
-                $sql = "SELECT solusi FROM penyakit
+                $sql = "SELECT solusi_penyakit FROM penyakit
           WHERE nama_penyakit = '$namaPenyakit'";
                 $result = $this->conn->query($sql);
                 if (isset($result)) {
@@ -188,7 +223,7 @@ class Crud extends koneksi
             }
         }
         for ($i = 0; $i < $j; $i++) {
-            echo '<input type="hidden" name="solusi[]" value="' . $rows[$i]["solusi"] . '">';
+            echo '<input type="hidden" name="solusi[]" value="' . $rows[$i]["solusi_penyakit"] . '">';
         }
     }
 }
