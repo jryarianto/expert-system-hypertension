@@ -36,7 +36,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
                         <tbody>
                             <tr>
                                 <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                                <td><input type='checkbox' id='vehicle1' name='vehicle1[]' value='<?php echo $row["gejala"]; ?>'></td>
+                                <td><input type='checkbox' name="gejala[]" value='<?php echo $row["gejala"]; ?>'></td>
                                 <td><?php echo $row["gejala"]; ?></td>
                             </tr>
                         </tbody>
@@ -45,9 +45,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
                     ?>
                 </table>
                 <div class="btn">
-                    <a class="button" href="hasil.php">
-                        <button style="float: right;" type="submit">Selesai</button>
-                    </a>
+                    <input class="button" type="submit" value="Selesai" name="submit">
                 </div>
             </form>
         </div>
@@ -56,7 +54,6 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
         echo "No result found";
     }
     ?>
-
 
 </body>
 

@@ -37,4 +37,12 @@
         </section>
 </body>
 
+<?php
+// if (isset($_POST['button'])) {
+//     echo "sadas";
+// }
+    $gejala = $_POST['gejala'];
+    var_dump($gejala);
+?>
+
 </html>
