@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    <?php
+    // if (isset($_POST['button'])) {
+    //     echo "sadas";
+    // }
+    $vehicle1 = $_POST['vehicle1'];
+    var_dump($vehicle1);
+    ?>
     <div class="tm-container-fluid">
         <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
             <i class="fas fa-heart fa-3x"></i>

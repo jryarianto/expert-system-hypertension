@@ -21,7 +21,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
     if (!$result || mysqli_num_rows($result) > 0) {
     ?>
         <div class="customer">
-            <form method="POST">
+            <form method="POST" action="hasil.php">
                 <table id="customers">
                     <thead>
                         <tr>
@@ -36,7 +36,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
                         <tbody>
                             <tr>
                                 <td style="text-align: center;"><?php echo $row["id_gejala"]; ?></td>
-                                <td><input type='checkbox' id='vehicle1' name='vehicle1' value='<?php echo $row["gejala"]; ?>'></td>
+                                <td><input type='checkbox' id='vehicle1' name='vehicle1[]' value='<?php echo $row["gejala"]; ?>'></td>
                                 <td><?php echo $row["gejala"]; ?></td>
                             </tr>
                         </tbody>
@@ -44,6 +44,11 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
                     }
                     ?>
                 </table>
+                <div class="btn">
+                    <a class="button" href="hasil.php">
+                        <button style="float: right;" type="submit">Selesai</button>
+                    </a>
+                </div>
             </form>
         </div>
     <?php
@@ -51,11 +56,7 @@ $result = mysqli_query($conn, "SELECT * FROM gejala");
         echo "No result found";
     }
     ?>
-    <div class="btn">
-        <a class="button" href="hasil.php">
-            <button style="float: right;" type="submit">Selesai</button>
-        </a>
-    </div>
+
 
 </body>
 
