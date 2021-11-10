@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2021 at 10:44 AM
+-- Generation Time: Nov 10, 2021 at 12:20 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -76,6 +76,18 @@ CREATE TABLE `penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `penyakit`
+--
+
+INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`, `kode_penyakit`, `solusi_penyakit`) VALUES
+(1, 'Hipertensi Primer atau Esensial', 'R', 'Minum Air'),
+(2, 'Hipertensi Sekunder', 'S', 'Makan Sehat'),
+(3, 'Prehipertensi', 'B', 'Makan dan Minum'),
+(4, 'Krisis Hipertensi', 'SB', 'Tidur Cukup'),
+(5, 'Hipertensi Urgensi', 'S', 'Olahraga'),
+(6, 'Hipertensi Emergensi', 'SB', 'Makan Teratur');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -117,7 +129,7 @@ ALTER TABLE `pengetahuan`
 -- AUTO_INCREMENT for table `penyakit`
 --
 ALTER TABLE `penyakit`
-  MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

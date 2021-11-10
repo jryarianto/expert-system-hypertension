@@ -50,7 +50,7 @@
                 <li>Prehipertensi</li>
                 <li>Krisis Hipertensi</li>
                 <li>Hipertensi Urgensi</li>
-                <li>Hipertensi Urgensi</li>
+                <li>Hipertensi Emergensi</li>
             </ul>
         </div>
     </div>

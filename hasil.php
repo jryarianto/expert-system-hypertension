@@ -14,7 +14,6 @@ $crud = new Crud();
     <title>Result Page</title>
     <link href="css/hasil.css" rel="stylesheet">
     <link href="css/hasil2.css" rel="stylesheet">
-    <link href="css/navbar.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,200&display=swap" rel="stylesheet">
 </head>
 
