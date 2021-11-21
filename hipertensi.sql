@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 03:12 PM
+-- Generation Time: Nov 21, 2021 at 05:12 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `gejala` (
   `id_gejala` int(11) NOT NULL,
-  `gejala` varchar(100) NOT NULL
+  `gejala` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -37,16 +37,18 @@ CREATE TABLE `gejala` (
 --
 
 INSERT INTO `gejala` (`id_gejala`, `gejala`) VALUES
-(1, 'Mual'),
-(2, 'Muntah'),
-(3, 'Sakit Kepala'),
-(4, 'Mimisan'),
-(5, 'Sesak Napas'),
-(6, 'Nyeri Dada'),
-(7, 'Gangguan Penglihatan'),
-(8, 'Telinga Berdenging'),
-(9, 'Gangguan Irama Jantung'),
-(10, 'Darah Dalam Urine');
+(1, 'Sakit kepala'),
+(2, 'Penglihatan terganggu'),
+(3, 'Riwayat hipertensi keluarga'),
+(4, 'Penurunan kesadaran'),
+(5, 'Tanda kegagalan organ seperti pembengkakkan dan parese ekstremitas'),
+(6, 'Kejang'),
+(7, 'Delirium'),
+(8, 'Tekanan sistolik diantara 120-129mmHg dan tekanan diastolik dibawah 80mmHg'),
+(9, 'Tekanan sistolik diantara 130-139mmHg dan tekanan diastolik diantara 80-89mmHg'),
+(10, 'Tekanan sistolik diantara 160 mmHg atau lebih, diastolik 100 mmHg atau lebih'),
+(11, 'Peningkatan Tekanan Darah yang berat >180/120mmHg pada kondisi klinis stabil tanpa adanya perubahan akut atau ancaman kerusakan organ target atau disfungsi organ'),
+(12, 'Peningkatan Tekanan Darah yang berat >180/120mmHg disertai bukti kerusakan baru atau perburukan kerusakan organ target (Target Organ Damage=TOD)');
 
 -- --------------------------------------------------------
 
@@ -67,16 +69,31 @@ CREATE TABLE `pengetahuan` (
 --
 
 INSERT INTO `pengetahuan` (`id_pengetahuan`, `kode_penyakit`, `id_gejala`, `mb`, `md`) VALUES
-(1, 'HP', 1, 0.75, 0.25),
-(2, 'HS', 2, 0.75, 0.25),
-(3, 'P', 3, 0.75, 0.25),
-(4, 'KH', 4, 0.85, 0.15),
-(5, 'HS', 5, 0.75, 0.25),
-(6, 'HE', 7, 0.75, 0.25),
-(7, 'HP', 9, 0.75, 0.25),
-(8, 'HS', 10, 0.75, 0.25),
-(9, 'P', 6, 0.7, 0.3),
-(10, 'KH', 8, 0.65, 0.35);
+(1, 'PH', 1, 0.6, 0.4),
+(2, 'HPI', 1, 0.6, 0.4),
+(3, 'HPII', 1, 0.6, 0.4),
+(4, 'HU', 1, 0.6, 0.4),
+(5, 'HE', 1, 0.6, 0.4),
+(6, 'HPI', 2, 0.6, 0.4),
+(7, 'HU', 2, 0.6, 0.4),
+(8, 'HE', 2, 0.6, 0.4),
+(9, 'PH', 2, 0.6, 0.4),
+(10, 'HPII', 2, 0.6, 0.4),
+(11, 'PH', 3, 0.6, 0.4),
+(12, 'HPI', 3, 0.6, 0.4),
+(13, 'HPII', 3, 0.6, 0.4),
+(14, 'HU', 3, 0.6, 0.4),
+(15, 'HE', 3, 0.6, 0.4),
+(16, 'HU', 4, 0.75, 0.25),
+(17, 'HE', 4, 0.75, 0.25),
+(18, 'HE', 5, 0.8, 0.2),
+(19, 'HE', 6, 0.8, 0.2),
+(20, 'HE', 7, 0.8, 0.2),
+(21, 'PH', 8, 0.9, 0.1),
+(22, 'HPI', 9, 0.9, 0.1),
+(23, 'HPII', 10, 0.9, 0.1),
+(24, 'HU', 11, 0.9, 0.1),
+(25, 'HE', 12, 0.9, 0.1);
 
 -- --------------------------------------------------------
 
@@ -96,12 +113,11 @@ CREATE TABLE `penyakit` (
 --
 
 INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`, `kode_penyakit`, `solusi_penyakit`) VALUES
-(1, 'Hipertensi Primer atau Esensial', 'HP', 'Minum Air'),
-(2, 'Hipertensi Sekunder', 'HS', 'Makan Sehat'),
-(3, 'Prehipertensi', 'P', 'Makan dan Minum'),
-(4, 'Krisis Hipertensi', 'KH', 'Tidur Cukup'),
-(5, 'Hipertensi Urgensi', 'HS', 'Olahraga'),
-(6, 'Hipertensi Emergensi', 'HE', 'Makan Teratur');
+(1, 'Pre hipertensi', 'PH', 'Atur pola makan, batasi konsumsi garam, olahraga teratur, berhenti merokok, kelola stress'),
+(2, 'Hipertensi Grade I', 'HPI', 'Atur pola makan, batasi konsumsi garam, olahraga teratur, berhenti merokok, kelola stress'),
+(3, 'Hipertensi Grade II', 'HPII', 'Atur pola makan, batasi konsumsi garam, olahraga teratur, berhenti merokok, kelola stress'),
+(4, 'Hipertensi Urgensi', 'HU', 'Konsumsi obat darah tinggi diuretik seperti Thiazide'),
+(5, 'Hipertensi Emergensi', 'HE', 'Hubungi rumah sakit terdekat dengan segera');
 
 --
 -- Indexes for dumped tables
@@ -133,7 +149,7 @@ ALTER TABLE `penyakit`
 -- AUTO_INCREMENT for table `gejala`
 --
 ALTER TABLE `gejala`
-  MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `pengetahuan`
