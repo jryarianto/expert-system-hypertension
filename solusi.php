@@ -4,7 +4,7 @@ if (!isset($_POST['btn-solusi'])) {
     die();
 }
 // untuk memanggil file
-include 'Crud.php';
+include 'crud.php';
 // untuk mendeklarasikan class menjadi variabel
 $crud = new Crud();
 ?>
