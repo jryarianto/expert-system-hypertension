@@ -21,7 +21,7 @@ $crud = new Crud();
     <?php include 'navbar.php' ?>
 
     <div class="tm-container-fluid">
-        <section class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
+        <section class="tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded">
             <i class="fas fa-heart fa-3x"></i>
             <h1>Hasil Konsultasi</h1>
             <?php
@@ -77,7 +77,7 @@ $crud = new Crud();
                     }
                 }
             ?>
-                <table class="table table-light table-bordered border-dark" style="text-align: center;">
+                <table style="text-align: center;">
                     <thead class="table-info table-bordered border-dark">
                         <tr>
                             <th scope="col">Nama Penyakit</th>
@@ -92,14 +92,15 @@ $crud = new Crud();
                         </tr>
                     </tbody>
                 </table>
-                <h2 style="font-family: 'Permanent Marker', cursive;"> Kemungkinan Penyakit Anda : </h2>
-                <form name="form_diagnosis" action="solusi.php" method="POST">
-                    <ul style="font-family: 'Source Sans Pro', sans-serif; font-size:24px;">
-                        <?php $crud->hasilAkhir($daftar_cf, $groupKemungkinanPenyakit); ?>
-                    </ul>
-                    <button class="button button1" id="btn-solusi" type="submit" name="btn-solusi">Solusi</button><br />
-                </form>
+
             <?php } ?>
+            <h2 style="font-family: 'Permanent Marker', cursive;"> Kemungkinan Penyakit Anda : </h2>
+            <form name="form_diagnosis" action="solusi.php" method="POST">
+                <ul style="font-family: 'Source Sans Pro', sans-serif; font-size:24px;">
+                    <?php $crud->hasilAkhir($daftar_cf, $groupKemungkinanPenyakit); ?>
+                </ul>
+                <button class="button button1" type="submit" name="btn-solusi">Solusi</button><br />
+            </form>
         </section>
     </div>
 </body>

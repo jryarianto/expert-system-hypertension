@@ -37,13 +37,10 @@ h1, h2, p, i, address, .tm-text-white { color: white; }
     padding: 60px 15px;
 }
 
-.tm-site-header { height: 470px; }
-
 .tm-flex-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .tm-about,
@@ -207,3 +204,4 @@ address { font-style: normal; }
 .tm-bgcolor-2 { background-color: #38CCCC; }
 .tm-bgcolor-3 { background-color: #99CCCC; }
 .tm-border-rounded { border-radius: 15px; }
+
