@@ -45,10 +45,9 @@
         <div class="box3">
             <h1>Jenis Hipertensi</h1>
             <ul>
-                <li>Hipertensi Primer atau Esensial</li>
-                <li>Hipertensi Sekunder</li>
                 <li>Prehipertensi</li>
-                <li>Krisis Hipertensi</li>
+                <li>Hipertensi Grade I</li>
+                <li>Hipertensi Grade II</li>
                 <li>Hipertensi Urgensi</li>
                 <li>Hipertensi Emergensi</li>
             </ul>
